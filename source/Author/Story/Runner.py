@@ -3,8 +3,5 @@
 
 Description: Creates the story for genesis
 '''
-import sys
 
-print sys.path
 
-import source.Author.Cluster

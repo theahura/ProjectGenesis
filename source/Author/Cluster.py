@@ -6,8 +6,8 @@ Description: Defines the cluster parent class
 
 
 class Cluster: 
-    """Defines the cluster parent class, which contains basic methods common to all
-    character, setting, thing clusters"""
+    """Defines the cluster parent class, which contains basic methods common to
+    all character, setting, thing clusters"""
     
     def __init__(self):
         pass
