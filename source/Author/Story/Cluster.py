@@ -9,20 +9,11 @@ class Cluster:
     """Defines the cluster parent class, which contains basic methods common to
     all character, setting, thing clusters"""
     
-    def __init__(self):
-        pass
+    def __init__(self, name, type, characters=None, settings=None, things=None):
+        self.name = name
+        self.type = type
 
-    def getName(self):
-        return name
+        self.characters = characters
+        self.settings = settings
+        self.things = things
 
-    def find_associated_word(self):
-        pass
-
-    def get_character_relations(self):
-        pass
-
-    def get_setting_relations(self):
-        pass
-
-    def get_thing_relations(self):
-        pass

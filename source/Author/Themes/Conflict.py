@@ -6,14 +6,9 @@ Description: Creates the conflict and broad outlines of story relations
 
 class Conflict:
 
-    self.starting_relation = ""
+    def __init__(relation_outline_array=None):
+        self.conflict_outline = relation_outline_array  
 
-    self.resolution_relation ""
+    def add_relation(relation_outline):
+        self.conflict_outline.push(relation_outline)
 
-    self.final_relation = ""
-
-    self.relation_outlines = [self.starting_relation,
-                              self.resolution_relation,
-                              self.final_relation]
-
-    

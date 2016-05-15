@@ -5,7 +5,7 @@ Description: Creates a basic outline of a plot based on a theme file
 """
 
 import random
-#import relation
+from source.Author.Relation import Subsection
 
 class ThematicPlot:
     
@@ -26,48 +26,14 @@ class ThematicPlot:
         self.protagonist.set_antagonist(self.antag)
 
         #lays out the basic story relations
-        for relation_outline in conflict.relation_outlines: 
-            self.relation_order.push(initialize_relation_from_outline(relation_outline))
+        for relation_outline in conflict.conflict_outline: 
+            subsection = Subsection() 
+            subsection.init_from_outline(relation_outline, self.protag, self.current_setting)
+            self.subsections.push(subsection)
 
-        generate_plot()
+        generate_plot() 
 
-    def initialize_relation_from_outline(self, relation_outline)
-        """
-        Takes a string relation_outline and converts it into a relation class based on the params
-        laid out in the outline string. 
-
-
-        TODO: MOVE TO RELATION.PY AS AN INIT CONSTRUCTOR
-        """
-        relation_components = relation_outline.split(" ")
-        new_relation = Relation()
-        new_relation.set_first(self.protag)
-        new_relation.set_relation(relation_components[1])
-        
-        third_component = relation_components[2]
-
-        if third_component == 'character':
-            #picks a random character from the associated characters list or the current_setting 
-            #character list
-            templist = self.current_setting.characters
-            char_list = list(set(self.protag.characters).union(templist))
-            third_component = random.choice(char_list)
-
-        else if third_component == 'object':
-            templist = self.current_setting.things
-            thing_list = list(set(self.protag.things).union(templist))
-            third_component = random.choice(thing_list)
-
-        else if third_component == 'setting':
-            templist = self.current_setting.settings
-            setting_list = list(set(self.protag.settings).union(templist))
-            third_component = random.choice(setting_list)
-
-        new_relation.set_third(third_component)
-
-        return new_relation
-
-    def generate_plot()
+    def generate_plot():
         """
         Iterates over relations from conflict_beginning to conflict_resolution to conflict_ending
         At each step, it decides relationships for the protag and antag characters until the next
@@ -77,13 +43,6 @@ class ThematicPlot:
         """
         pass
 
-
     def generate_next_setting(self):
         self.current_setting = random.choice(self.current_setting.settings)
         
-
-
-if __name__ == "__main__":
-    plotgen = new ThematicPlot()
-
-
