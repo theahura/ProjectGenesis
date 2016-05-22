@@ -16,4 +16,6 @@ class Cluster:
         self.characters = characters
         self.settings = settings
         self.things = things
+        self.start_setting = None
+
 

@@ -29,6 +29,8 @@ class Subsection(Relation):
     def __init__(self, cluster1=None, relation=None, cluster2=None):
         super(Subsection, self).__init__(cluster1, relation, cluster2)
 
+    def get_setting(self):
+        return self.cluster2.start_setting
     
     def init_from_outline(self, relation_outline, protag, current_setting):
         """
@@ -62,3 +64,9 @@ class Subsection(Relation):
             third_component = random.choice(setting_list)
 
         self.cluster2 = third_component
+
+class GenericRelation(Relation):
+
+    def __init__(self, cluster1=None, cluster2=None):
+        super(GenericRelation, self).__init__(cluster1, "***", cluster2)
+
