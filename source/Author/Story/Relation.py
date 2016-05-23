@@ -20,8 +20,11 @@ class Relation:
         type2 = self.cluster2.type
         return type1 + " " + self.relation + " " + type2
 
+    def create_relation_string(self):
+        return self.cluster1.name + " " + self.relation + " " + self.cluster2.name
+
     def __str__(self):
-        return create_relation_outline()
+        return create_relation_string()
 
 
 class Subsection(Relation):
