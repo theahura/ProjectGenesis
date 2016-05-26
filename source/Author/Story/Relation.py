@@ -11,6 +11,11 @@ for major plot outlines.
 class Relation:
 
     def __init__(self, cluster1=None, relation=None, cluster2=None):
+        """
+        @param: cluster1; Cluster; the first part of the relation
+        @param: relation; String; the actual way cluster 1 and 2 relate
+        @param: cluster2; Cluster; the second part of the relation
+        """
         self.cluster1 = cluster1
         self.relation = relation
         self.cluster2 = cluster2
@@ -30,6 +35,9 @@ class Relation:
 class Subsection(Relation):
 
     def __init__(self, cluster1=None, relation=None, cluster2=None):
+        """
+        See super for param defintion.
+        """
         super(Subsection, self).__init__(cluster1, relation, cluster2)
 
     def get_setting(self):
@@ -40,8 +48,10 @@ class Subsection(Relation):
         Takes a string relation_outline and converts it into a relation class based on the params
         laid out in the outline string. 
 
-        relation_outline: string in the form cluster1type1 relationterm clustertype2, e.g. 
-        Character in Setting, Character has Object, etc.
+        @param: relation_outline; string; in the form cluster1type1 relationterm clustertype2, e.g. 
+            Character in Setting, Character has Object, etc.
+        @param: protag; Character; the character cluster who is being followed in the story
+        @param: current_setting; Setting; the setting where the protag currently is
         """
         relation_components = relation_outline.split(" ")
         self.cluster1 = self.protag
@@ -71,5 +81,8 @@ class Subsection(Relation):
 class GenericRelation(Relation):
 
     def __init__(self, cluster1=None, cluster2=None):
+        """
+        See super.
+        """
         super(GenericRelation, self).__init__(cluster1, "***", cluster2)
 

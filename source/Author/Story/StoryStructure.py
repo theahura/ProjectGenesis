@@ -18,6 +18,9 @@ class StoryStructure:
         """
         Selects a random setting from the list of given settings and uses the conflict to create
         the basic setup for a story. 
+
+        @param: settings; [Setting]; a list of all possible settings, already initialized and related to each other
+        @param: conflict; Conflict; a conflict class detailing the story being followed
         """
         #generates the initial setting
         self.start_setting = random.choice(settings)

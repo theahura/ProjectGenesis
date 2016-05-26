@@ -11,7 +11,12 @@ from source.Author.Modules.Module import Module
 class BasicPlotGen(Module):
 
     def __init__(self, storystruct):
+        """
+        @param: storystruct; StoryStructure; where to store the new data being created for plot
+        """
         storystruct.setdetails(generate_plot())
+        super(BasicPlotGen, self).__init__()
+
 
     def generate_plot(self):
         """
@@ -41,6 +46,9 @@ class BasicPlotGen(Module):
     def generate_generic_relation(self, protag, setting):
         """
         Creates an undefined relation between the protagonist and a thing or character
+
+        @param: protag; Character; the character who is relating to something else
+        @param: setting; Setting; a source for other elements to relate to
         """
         cluster2_list = list(set().union(setting.characters, setting.things, protag.things))
         return GenericRelation(protag, random.choice(cluster2))
@@ -48,6 +56,9 @@ class BasicPlotGen(Module):
     def generate_setting_map(self, current_setting, next_setting):
         """ 
         Creates a path from current_setting to next_setting by iterating over nearby settings. 
+
+        @param: current_setting; Setting; where to start
+        @param: next_setting; Setting; where to end
         """
         traversed_settings = set()
         return generate_setting_map_helper(current_setting, next_setting, traversed_settings) 
@@ -62,6 +73,10 @@ class BasicPlotGen(Module):
 
         Note: can never return immediately to same location. Could be a problem for max dynamic
         story telling.
+
+        @param: current_node; Setting; where in the graph we currently are
+        @param: final_node; Setting; where in the graph we need to be
+        @param: traversed_setting; Setting; where in the graph we have already been
         """
 
         if current_node.name == final_node.name:
