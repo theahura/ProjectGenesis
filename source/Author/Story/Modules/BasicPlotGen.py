@@ -29,7 +29,7 @@ class BasicPlotGen(Module):
         #for each subsection
         for i, subsection in enumerate(self.subsections):
 
-            detail_list.push(subsection)
+            detail_list.append(subsection)
 
             nextsub = self.subsections[i+1]
 
@@ -39,7 +39,7 @@ class BasicPlotGen(Module):
             #in each of these settings, generate some random number of relations from 0 to 10
             for setting in setting_path:
                 for i in range(random.randint(0, 10)):
-                    detail_list.push(generate_generic_relation(self.protag, setting))
+                    detail_list.append(generate_generic_relation(self.protag, setting))
 
         return detail_list
 

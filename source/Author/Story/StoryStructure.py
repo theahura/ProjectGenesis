@@ -43,7 +43,7 @@ class StoryStructure:
         for relation_outline in conflict.conflict_outline: 
             subsection = Subsection() 
             subsection.init_from_outline(relation_outline, self.protag, self.current_setting)
-            self.subsections.push(subsection)
+            self.subsections.append(subsection)
 
         #connects the rest of the story together
         self.details = [] 

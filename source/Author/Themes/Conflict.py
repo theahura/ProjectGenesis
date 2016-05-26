@@ -10,5 +10,5 @@ class Conflict:
         self.conflict_outline = relation_outline_array  
 
     def add_relation(relation_outline):
-        self.conflict_outline.push(relation_outline)
+        self.conflict_outline.append(relation_outline)
 
