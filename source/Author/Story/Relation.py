@@ -6,6 +6,8 @@ the bread and butter of the author's development.
 Description: Subsection. Child of Relation. Defines relation class for subsections as Protag 
 <relation term> <cluster2>, where cluster2 is related to the protag or the current setting. Used 
 for major plot outlines. 
+
+Note that relations can be verbs.
 """
 
 class Relation:

@@ -10,11 +10,16 @@ from source.Author.Clusters.Cluster import Cluster
 
 class Setting(Cluster):
 
-    def __init__(self, name, characters=None, settings=None, things=None):
+    def __init__(self, name, characters=None, settings=None, things=None, descriptors=None):
         """
-        See super for init param definition.
+        See super for init param definition if not listed.
         """
-        super(Character, self).__init__(name, "CHARACTER", characters, settings, things)
+        super(Character, self).__init__(name, "SETTING", characters, settings, things, descriptors)
 
+        self.contains = things
 
+    def add_cluster_to_contains(cluster):
+        if cluster.type == 'SETTING':
+            raise TypeError('Setting cannot contain a setting')
 
+        self.contains.add(cluster)
